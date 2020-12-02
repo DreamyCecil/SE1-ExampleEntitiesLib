@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{e7d59bc4-af0d-42fb-80c4-0a3810d10b3b}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;hpj;bat;for;f90</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Common sources">
+      <UniqueIdentifier>{eff72727-f56f-4f0e-afac-b202a832273c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{40c44e31-3be4-44a9-8aef-92eb0d62e66c}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;fi;fd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Common headers">
+      <UniqueIdentifier>{b1b59106-4305-4614-9d3a-a199972e8e55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Class Files">
+      <UniqueIdentifier>{d652878a-c578-4041-b62b-f0edb3642a60}</UniqueIdentifier>
+      <Extensions>es</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Entity sources">
+      <UniqueIdentifier>{df20e1e5-29e6-4d05-b36c-9184d942fd15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entity headers">
+      <UniqueIdentifier>{d2c7df00-366e-4167-8aee-7741bb704081}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="_Global.es">
+      <Filter>Class Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ExampleEntity.es">
+      <Filter>Class Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="StdH\StdH.h">
+      <Filter>Header Files\Common headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Common.h">
+      <Filter>Header Files\Common headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\EntityExt.h">
+      <Filter>Header Files\Common headers</Filter>
+    </ClInclude>
+    <ClInclude Include="_Global.h">
+      <Filter>Header Files\Entity headers</Filter>
+    </ClInclude>
+    <ClInclude Include="_Global_tables.h">
+      <Filter>Header Files\Entity headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ExampleEntity.h">
+      <Filter>Header Files\Entity headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ExampleEntity_tables.h">
+      <Filter>Header Files\Entity headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\ImportedEvents.h">
+      <Filter>Header Files\Common headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\ImportedFlags.h">
+      <Filter>Header Files\Common headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Common\Common.cpp">
+      <Filter>Source Files\Common sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\EntityExt.cpp">
+      <Filter>Source Files\Common sources</Filter>
+    </ClCompile>
+    <ClCompile Include="StdH\StdH.cpp">
+      <Filter>Source Files\Common sources</Filter>
+    </ClCompile>
+    <ClCompile Include="_Global.cpp">
+      <Filter>Source Files\Entity sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ExampleEntity.cpp">
+      <Filter>Source Files\Entity sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\ImportedEvents.cpp">
+      <Filter>Source Files\Common sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
