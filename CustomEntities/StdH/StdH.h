@@ -19,8 +19,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 // -- EntitiesMP compatibility (if not dependent directly)
 
-// Define player class as an movable entity
-typedef CMovableModelEntity CPlayer;
+// Define player class
+typedef CPlayerEntity CPlayer;
 
 // Imported events (exclude if using "Global.h" from EntitiesMP)
 #include "../Common/ImportedEvents.h"

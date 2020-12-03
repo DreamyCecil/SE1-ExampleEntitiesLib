@@ -2,7 +2,9 @@
 This is a clean library base for your own Serious Sam entities based on Serious Sam SDK v1.07 by Croteam released in 2002.
 
 This SDK contains only the engine headers and the project files were created for Visual Studio 2013 Professional edition.
-If you wish to interract with vanilla Serious Sam entities directly from your library, include the `EntitiesMP` (and optional `GameMP`) project into this one (a VS2013+ compatible version can be found at https://github.com/DreamyCecil/SeriousSam_SDK107 ) and copy included `EntitiesMP` headers from `EntitiesMP/StdH/StdH.h` to `CustomEntities/StdH/StdH.h`.
+
+If you wish to interract with vanilla Serious Sam entities directly from your library, include the `EntitiesMP` (and optional `GameMP`) project into this one. Then copy included `EntitiesMP` headers from `EntitiesMP/StdH/StdH.h` to `CustomEntities/StdH/StdH.h`.
+A VS2013+ compatible version can be found at https://github.com/DreamyCecil/SeriousSam_SDK107
 
 If you wish to create other entity packs, you can base it off renamed `CustomEntities` project and add it to the `EntitiesLib` solution (don't forget to reconfigure library names and paths).
 No need to clone this entire repository for another entity pack.
@@ -28,6 +30,7 @@ Running
 -------
 
 Once the project is compiled, there should be a `CustomEntitiesMP.dll` library in the release folder (`CustomEntities/Release`) and in the Bin folder one level above the sources folder (e.g `C:/SeriousSam/Bin` if the sources are in `C:/SeriousSam/Sources`).
+
 To change the path where to copy the library (if you wish to put sources separately from the game), consider changing the path in the custom build step (**Project properties** -> **Custom Build Step** -> **Command Line**).
 
 How to use your new entities in the game:

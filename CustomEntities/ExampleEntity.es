@@ -32,7 +32,7 @@ void PrintPlayerInfo(CEntity *penPlayer, BOOL bAlive) {
 
 class export CExampleEntity : CRationalEntity {
 name      "ExampleEntity";
-thumbnail "Thumbnail\\Marker.tbn";
+thumbnail "Thumbnails\\Marker.tbn";
 features  "HasName", "IsTargetable", "IsImportant";
 
 properties:
