@@ -27,7 +27,8 @@ Remember to **not** use spaces in the path to the solution.
 Running
 -------
 
-Once the project is compiled, there should be a `CustomEntitiesMP.dll` library in the release folder (`CustomEntities/Release`).
+Once the project is compiled, there should be a `CustomEntitiesMP.dll` library in the release folder (`CustomEntities/Release`) and in the Bin folder one level above the sources folder (e.g `C:/SeriousSam/Bin` if the sources are in `C:/SeriousSam/Sources`).
+To change the path where to copy the library (if you wish to put sources separately from the game), consider changing the path in the custom build step (**Project properties** -> **Custom Build Step** -> **Command Line**).
 
 How to use your new entities in the game:
 1. Copy the library into the same folder as `EntitiesMP.dll` (e.g. `C:/SeriousSam/Bin`).
