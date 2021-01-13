@@ -1,3 +1,11 @@
+# Custom entity packs
+*/
+!Classes/
+!CustomEntities/
+!Engine/
+!EngineGUI/
+!Extras/
+
 # Compiled Object files
 *.slo
 *.lo
@@ -55,7 +63,7 @@ Debug/
 # Generated configuration files
 *.plr
 *.log
-*.rpt	# crashinfo
+*.rpt # crashinfo
 *.gms
 *.vis
 
