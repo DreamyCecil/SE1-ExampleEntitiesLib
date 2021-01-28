@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 Dreamy Cecil
+/* Copyright (c) 2020-2021 Dreamy Cecil
 This program is free software; you can redistribute it and/or modify
 it under the terms of version 2 of the GNU General Public License as published by
 the Free Software Foundation
@@ -38,4 +38,4 @@ DECL_DLL CPlayer *GetNextPlayerEntity(INDEX &iPlayer);
        _PlayerIndex++)
 
 // Assert entity's existence
-#define ASSERT_ENTITY(_Entity) (_Entity == NULL || _Entity->GetFlags() & ENF_DELETED)
+#define ASSERT_ENTITY(_Entity) (_Entity != NULL && !(_Entity->GetFlags() & ENF_DELETED))
