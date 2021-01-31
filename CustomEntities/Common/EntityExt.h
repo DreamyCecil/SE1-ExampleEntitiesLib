@@ -39,3 +39,8 @@ DECL_DLL CPlayer *GetNextPlayerEntity(INDEX &iPlayer);
 
 // Assert entity's existence
 #define ASSERT_ENTITY(_Entity) (_Entity != NULL && !(_Entity->GetFlags() & ENF_DELETED))
+
+// Assert live entity
+#define ASSERT_CLiveEntity(_Entity) (reinterpret_cast<CLiveEntity*>(_Entity) != NULL)
+// Assert rational entity
+#define ASSERT_CRationalEntity(_Entity) (reinterpret_cast<CRationalEntity*>(_Entity) != NULL)
