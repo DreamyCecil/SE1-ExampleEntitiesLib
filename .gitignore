@@ -6,6 +6,9 @@
 !EngineGUI/
 !Extras/
 
+*.sln
+!EntitiesLib.sln
+
 # Compiled Object files
 *.slo
 *.lo
