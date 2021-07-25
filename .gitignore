@@ -62,6 +62,8 @@ Debug/
 *.exp
 *.res
 *.lastbuildstate
+*.idb
+*.user
 
 # Generated configuration files
 *.plr
