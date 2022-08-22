@@ -6,16 +6,37 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CustomEntities", "CustomEnt
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Win32 = Debug|Win32
-		Release|Win32 = Release|Win32
+		Debug_TFE105|Win32 = Debug_TFE105|Win32
+		Debug_TSE105|Win32 = Debug_TSE105|Win32
+		Debug_TSE107|Win32 = Debug_TSE107|Win32
+		Debug_TSE110|Win32 = Debug_TSE110|Win32
+		Release_TFE105|Win32 = Release_TFE105|Win32
+		Release_TSE105|Win32 = Release_TSE105|Win32
+		Release_TSE107|Win32 = Release_TSE107|Win32
+		Release_TSE110|Win32 = Release_TSE110|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D9F67AA1-970A-BFDD-6BE9-BD0CDCE98A10}.Debug|Win32.ActiveCfg = Debug|Win32
-		{D9F67AA1-970A-BFDD-6BE9-BD0CDCE98A10}.Debug|Win32.Build.0 = Debug|Win32
-		{D9F67AA1-970A-BFDD-6BE9-BD0CDCE98A10}.Release|Win32.ActiveCfg = Release|Win32
-		{D9F67AA1-970A-BFDD-6BE9-BD0CDCE98A10}.Release|Win32.Build.0 = Release|Win32
+		{D9F67AA1-970A-BFDD-6BE9-BD0CDCE98A10}.Debug_TFE105|Win32.ActiveCfg = Debug_TFE105|Win32
+		{D9F67AA1-970A-BFDD-6BE9-BD0CDCE98A10}.Debug_TFE105|Win32.Build.0 = Debug_TFE105|Win32
+		{D9F67AA1-970A-BFDD-6BE9-BD0CDCE98A10}.Debug_TSE105|Win32.ActiveCfg = Debug_TSE105|Win32
+		{D9F67AA1-970A-BFDD-6BE9-BD0CDCE98A10}.Debug_TSE105|Win32.Build.0 = Debug_TSE105|Win32
+		{D9F67AA1-970A-BFDD-6BE9-BD0CDCE98A10}.Debug_TSE107|Win32.ActiveCfg = Debug_TSE107|Win32
+		{D9F67AA1-970A-BFDD-6BE9-BD0CDCE98A10}.Debug_TSE107|Win32.Build.0 = Debug_TSE107|Win32
+		{D9F67AA1-970A-BFDD-6BE9-BD0CDCE98A10}.Debug_TSE110|Win32.ActiveCfg = Debug_TSE110|Win32
+		{D9F67AA1-970A-BFDD-6BE9-BD0CDCE98A10}.Debug_TSE110|Win32.Build.0 = Debug_TSE110|Win32
+		{D9F67AA1-970A-BFDD-6BE9-BD0CDCE98A10}.Release_TFE105|Win32.ActiveCfg = Release_TFE105|Win32
+		{D9F67AA1-970A-BFDD-6BE9-BD0CDCE98A10}.Release_TFE105|Win32.Build.0 = Release_TFE105|Win32
+		{D9F67AA1-970A-BFDD-6BE9-BD0CDCE98A10}.Release_TSE105|Win32.ActiveCfg = Release_TSE105|Win32
+		{D9F67AA1-970A-BFDD-6BE9-BD0CDCE98A10}.Release_TSE105|Win32.Build.0 = Release_TSE105|Win32
+		{D9F67AA1-970A-BFDD-6BE9-BD0CDCE98A10}.Release_TSE107|Win32.ActiveCfg = Release_TSE107|Win32
+		{D9F67AA1-970A-BFDD-6BE9-BD0CDCE98A10}.Release_TSE107|Win32.Build.0 = Release_TSE107|Win32
+		{D9F67AA1-970A-BFDD-6BE9-BD0CDCE98A10}.Release_TSE110|Win32.ActiveCfg = Release_TSE110|Win32
+		{D9F67AA1-970A-BFDD-6BE9-BD0CDCE98A10}.Release_TSE110|Win32.Build.0 = Release_TSE110|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C4348309-2DB3-4588-B7A4-7E992B165972}
 	EndGlobalSection
 EndGlobal

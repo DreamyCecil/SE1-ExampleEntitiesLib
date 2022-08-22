@@ -15,18 +15,6 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "StdH.h"
 
-// Replace all occurrences of a substring
-CTString ReplaceSubstr(CTString str, const CTString &strSub, const CTString &strReplace) {
-  String strReturn = str;
-  int iStart = 0;
-
-  while ((iStart = strReturn.find(strSub, iStart)) != String::npos) {
-    strReturn.replace(iStart, strSub.Length(), strReplace);
-    iStart += strReplace.Length();
-  }
-  return strReturn.c_str();
-};
-
 // Send event to target
 void SendToTarget(CEntity *penSendEvent, EEventType eEventType, CEntity *penCaused) {
   // invalid target

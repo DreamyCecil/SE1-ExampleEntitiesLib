@@ -28,6 +28,13 @@ void PrintPlayerInfo(CEntity *penPlayer, BOOL bAlive) {
   
   CPrintF(" %s^r: %d\n", penPlayer->GetName(), (INDEX)fHealth);
 };
+
+// Only valid for TSE 1.07 and newer
+#if SE1_VER >= 107
+  #define CRationalEntity_GetUsedMemory CRationalEntity::GetUsedMemory
+#else
+  #define CRationalEntity_GetUsedMemory() sizeof(CRationalEntity)
+#endif
 %}
 
 class export CExampleEntity : CRationalEntity {
@@ -59,7 +66,7 @@ functions:
 
   // Count memory used by this object
   SLONG GetUsedMemory(void) {
-    SLONG slUsedMemory = sizeof(CExampleEntity) - sizeof(CRationalEntity) + CRationalEntity::GetUsedMemory();
+    SLONG slUsedMemory = sizeof(CExampleEntity) - sizeof(CRationalEntity) + CRationalEntity_GetUsedMemory();
 
     slUsedMemory += m_strName.Length();
     slUsedMemory += m_strDescription.Length();

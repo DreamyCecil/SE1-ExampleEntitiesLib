@@ -1,0 +1,4 @@
+[submodule "Includes"]
+	path = Includes
+	url = https://github.com/DreamyCecil/SE1-ModSDK.git
+	branch = includes

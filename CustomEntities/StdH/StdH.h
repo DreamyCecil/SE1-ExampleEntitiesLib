@@ -27,10 +27,6 @@ typedef CPlayerEntity CPlayer;
 // Imported flags (exclude if using "Common/Flags.h" from EntitiesMP)
 #include "../Common/ImportedFlags.h"
 
-// Define a string class
-#include <string>
-typedef std::string String;
-
 // Global headers
 #include "../_Global.h"
 #include "../Common/Common.h"

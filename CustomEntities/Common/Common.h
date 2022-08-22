@@ -13,9 +13,6 @@ You should have received a copy of the GNU General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. */
 
-// Replace all occurrences of a substring
-DECL_DLL CTString ReplaceSubstr(CTString str, const CTString &strSub, const CTString &strReplace);
-
 // Send event to target
 DECL_DLL void SendToTarget(CEntity *penSendEvent, EEventType eEventType, CEntity *penCaused = NULL);
 // Send event in range

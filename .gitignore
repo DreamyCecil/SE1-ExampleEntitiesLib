@@ -4,7 +4,8 @@
 !CustomEntities/
 !Engine/
 !EngineGUI/
-!Extras/
+!Includes/
+!Properties/
 
 *.sln
 !EntitiesLib.sln
