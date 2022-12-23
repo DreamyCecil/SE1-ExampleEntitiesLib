@@ -556,67 +556,7 @@ copy $(OutDir)$(TargetName).lib $(SolutionDir)..\Bin\Debug\ &gt;nul</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="_Global.es">
-      <FileType>Document</FileType>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename).cpp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CustomEntities/%(Filename).es</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cd $(SolutionDir)
-ecc CustomEntities/%(Filename).es </Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename).cpp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CustomEntities/%(Filename).es</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cd $(SolutionDir)
-ecc CustomEntities/%(Filename).es </Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_TSE110|Win32'">%(Filename).cpp;%(Outputs)</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_TSE105|Win32'">%(Filename).cpp;%(Outputs)</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_TSE107|Win32'">%(Filename).cpp;%(Outputs)</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_TSE105|Win32'">%(Filename).cpp;%(Outputs)</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_TFE105|Win32'">%(Filename).cpp;%(Outputs)</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_TSE107|Win32'">%(Filename).cpp;%(Outputs)</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_TFE105|Win32'">%(Filename).cpp;%(Outputs)</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_TSE110|Win32'">%(Filename).cpp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release_TSE110|Win32'">$(ProjectName)\%(Filename).es</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_TSE105|Win32'">$(ProjectName)\%(Filename).es</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_TSE107|Win32'">$(ProjectName)\%(Filename).es</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release_TSE105|Win32'">$(ProjectName)\%(Filename).es</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_TFE105|Win32'">$(ProjectName)\%(Filename).es</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release_TSE107|Win32'">$(ProjectName)\%(Filename).es</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release_TFE105|Win32'">$(ProjectName)\%(Filename).es</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_TSE110|Win32'">$(ProjectName)\%(Filename).es</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_TSE110|Win32'">cd $(SolutionDir)
-ecc $(ProjectName)/%(Filename).es </Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_TSE105|Win32'">cd $(SolutionDir)
-ecc $(ProjectName)/%(Filename).es </Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_TSE107|Win32'">cd $(SolutionDir)
-ecc $(ProjectName)/%(Filename).es </Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_TSE105|Win32'">cd $(SolutionDir)
-ecc $(ProjectName)/%(Filename).es </Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_TFE105|Win32'">cd $(SolutionDir)
-ecc $(ProjectName)/%(Filename).es </Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_TSE107|Win32'">cd $(SolutionDir)
-ecc $(ProjectName)/%(Filename).es </Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_TFE105|Win32'">cd $(SolutionDir)
-ecc $(ProjectName)/%(Filename).es </Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_TSE110|Win32'">cd $(SolutionDir)
-ecc $(ProjectName)/%(Filename).es </Command>
-    </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Common\Common.h" />
-    <ClInclude Include="Common\EntityExt.h" />
-    <ClInclude Include="Common\ImportedEvents.h" />
-    <ClInclude Include="Common\ImportedFlags.h" />
-    <ClInclude Include="ExampleEntity.h" />
-    <ClInclude Include="ExampleEntity_tables.h" />
-    <ClInclude Include="StdH\StdH.h" />
-    <ClInclude Include="_Global.h" />
-    <ClInclude Include="_Global_tables.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Common\Common.cpp" />
-    <ClCompile Include="Common\EntityExt.cpp" />
-    <ClCompile Include="Common\ImportedEvents.cpp" />
-    <ClCompile Include="ExampleEntity.cpp" />
-    <ClCompile Include="StdH\StdH.cpp">
+    <ClCompile Include="LibMain.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_TSE110|Win32'">Create</PrecompiledHeader>
@@ -628,51 +568,76 @@ ecc $(ProjectName)/%(Filename).es </Command>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_TFE105|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_TSE110|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="_Global.cpp" />
+    <ClInclude Include="StdH.h" />
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="ExampleEntity.es">
+    <ClInclude Include="Classes\ExampleEntity.h" />
+    <ClInclude Include="Classes\ExampleEntity_tables.h" />
+    <ClInclude Include="Classes\Global.h" />
+    <ClInclude Include="Classes\Global_tables.h" />
+    <ClInclude Include="Common\Common.h" />
+    <ClInclude Include="Common\EntityExt.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Classes\ExampleEntity.cpp" />
+    <ClCompile Include="Classes\Global.cpp" />
+    <ClCompile Include="Common\Common.cpp" />
+    <ClCompile Include="Common\EntityExt.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Classes\ExampleEntity.es">
       <FileType>Document</FileType>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename).cpp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CustomEntities/%(Filename).es</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cd $(SolutionDir)
-ecc CustomEntities/%(Filename).es </Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename).cpp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CustomEntities/%(Filename).es</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cd $(SolutionDir)
-ecc CustomEntities/%(Filename).es </Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_TSE110|Win32'">%(Filename).cpp;%(Outputs)</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_TSE105|Win32'">%(Filename).cpp;%(Outputs)</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_TSE107|Win32'">%(Filename).cpp;%(Outputs)</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_TSE105|Win32'">%(Filename).cpp;%(Outputs)</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_TFE105|Win32'">%(Filename).cpp;%(Outputs)</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_TSE107|Win32'">%(Filename).cpp;%(Outputs)</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_TFE105|Win32'">%(Filename).cpp;%(Outputs)</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_TSE110|Win32'">%(Filename).cpp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release_TSE110|Win32'">$(ProjectName)\%(Filename).es</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_TSE105|Win32'">$(ProjectName)\%(Filename).es</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_TSE107|Win32'">$(ProjectName)\%(Filename).es</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release_TSE105|Win32'">$(ProjectName)\%(Filename).es</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_TFE105|Win32'">$(ProjectName)\%(Filename).es</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release_TSE107|Win32'">$(ProjectName)\%(Filename).es</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release_TFE105|Win32'">$(ProjectName)\%(Filename).es</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_TSE110|Win32'">$(ProjectName)\%(Filename).es</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_TSE110|Win32'">cd $(SolutionDir)
-ecc $(ProjectName)/%(Filename).es </Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_TSE105|Win32'">cd $(SolutionDir)
-ecc $(ProjectName)/%(Filename).es </Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_TSE107|Win32'">cd $(SolutionDir)
-ecc $(ProjectName)/%(Filename).es </Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_TSE105|Win32'">cd $(SolutionDir)
-ecc $(ProjectName)/%(Filename).es </Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_TFE105|Win32'">cd $(SolutionDir)
-ecc $(ProjectName)/%(Filename).es </Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_TSE107|Win32'">cd $(SolutionDir)
-ecc $(ProjectName)/%(Filename).es </Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_TFE105|Win32'">cd $(SolutionDir)
-ecc $(ProjectName)/%(Filename).es </Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_TSE110|Win32'">cd $(SolutionDir)
-ecc $(ProjectName)/%(Filename).es </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_TSE110|Win32'">%(RelativeDir)%(Filename).cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_TSE105|Win32'">%(RelativeDir)%(Filename).cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_TSE107|Win32'">%(RelativeDir)%(Filename).cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_TSE105|Win32'">%(RelativeDir)%(Filename).cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_TFE105|Win32'">%(RelativeDir)%(Filename).cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_TSE107|Win32'">%(RelativeDir)%(Filename).cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_TFE105|Win32'">%(RelativeDir)%(Filename).cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_TSE110|Win32'">%(RelativeDir)%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_TSE110|Win32'">cd "$(SolutionDir)" &amp;&amp; ecc "$(ProjectName)\%(RelativeDir)%(Filename).es"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release_TSE110|Win32'">$(ProjectName)\%(RelativeDir)%(Filename).es</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_TSE105|Win32'">cd "$(SolutionDir)" &amp;&amp; ecc "$(ProjectName)\%(RelativeDir)%(Filename).es"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_TSE105|Win32'">$(ProjectName)\%(RelativeDir)%(Filename).es</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_TSE107|Win32'">cd "$(SolutionDir)" &amp;&amp; ecc "$(ProjectName)\%(RelativeDir)%(Filename).es"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_TSE107|Win32'">$(ProjectName)\%(RelativeDir)%(Filename).es</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_TSE105|Win32'">cd "$(SolutionDir)" &amp;&amp; ecc "$(ProjectName)\%(RelativeDir)%(Filename).es"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release_TSE105|Win32'">$(ProjectName)\%(RelativeDir)%(Filename).es</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_TFE105|Win32'">cd "$(SolutionDir)" &amp;&amp; ecc "$(ProjectName)\%(RelativeDir)%(Filename).es"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_TFE105|Win32'">$(ProjectName)\%(RelativeDir)%(Filename).es</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_TSE107|Win32'">cd "$(SolutionDir)" &amp;&amp; ecc "$(ProjectName)\%(RelativeDir)%(Filename).es"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release_TSE107|Win32'">$(ProjectName)\%(RelativeDir)%(Filename).es</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_TFE105|Win32'">cd "$(SolutionDir)" &amp;&amp; ecc "$(ProjectName)\%(RelativeDir)%(Filename).es"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release_TFE105|Win32'">$(ProjectName)\%(RelativeDir)%(Filename).es</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_TSE110|Win32'">cd "$(SolutionDir)" &amp;&amp; ecc "$(ProjectName)\%(RelativeDir)%(Filename).es"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_TSE110|Win32'">$(ProjectName)\%(RelativeDir)%(Filename).es</Message>
+    </CustomBuild>
+    <CustomBuild Include="Classes\Global.es">
+      <FileType>Document</FileType>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_TSE110|Win32'">%(RelativeDir)%(Filename).cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_TSE105|Win32'">%(RelativeDir)%(Filename).cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_TSE107|Win32'">%(RelativeDir)%(Filename).cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_TSE105|Win32'">%(RelativeDir)%(Filename).cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_TFE105|Win32'">%(RelativeDir)%(Filename).cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_TSE107|Win32'">%(RelativeDir)%(Filename).cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_TFE105|Win32'">%(RelativeDir)%(Filename).cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_TSE110|Win32'">%(RelativeDir)%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_TSE110|Win32'">cd "$(SolutionDir)" &amp;&amp; ecc "$(ProjectName)\%(RelativeDir)%(Filename).es"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release_TSE110|Win32'">$(ProjectName)\%(RelativeDir)%(Filename).es</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_TSE105|Win32'">cd "$(SolutionDir)" &amp;&amp; ecc "$(ProjectName)\%(RelativeDir)%(Filename).es"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_TSE105|Win32'">$(ProjectName)\%(RelativeDir)%(Filename).es</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_TSE107|Win32'">cd "$(SolutionDir)" &amp;&amp; ecc "$(ProjectName)\%(RelativeDir)%(Filename).es"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_TSE107|Win32'">$(ProjectName)\%(RelativeDir)%(Filename).es</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_TSE105|Win32'">cd "$(SolutionDir)" &amp;&amp; ecc "$(ProjectName)\%(RelativeDir)%(Filename).es"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release_TSE105|Win32'">$(ProjectName)\%(RelativeDir)%(Filename).es</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_TFE105|Win32'">cd "$(SolutionDir)" &amp;&amp; ecc "$(ProjectName)\%(RelativeDir)%(Filename).es"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_TFE105|Win32'">$(ProjectName)\%(RelativeDir)%(Filename).es</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_TSE107|Win32'">cd "$(SolutionDir)" &amp;&amp; ecc "$(ProjectName)\%(RelativeDir)%(Filename).es"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release_TSE107|Win32'">$(ProjectName)\%(RelativeDir)%(Filename).es</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_TFE105|Win32'">cd "$(SolutionDir)" &amp;&amp; ecc "$(ProjectName)\%(RelativeDir)%(Filename).es"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release_TFE105|Win32'">$(ProjectName)\%(RelativeDir)%(Filename).es</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_TSE110|Win32'">cd "$(SolutionDir)" &amp;&amp; ecc "$(ProjectName)\%(RelativeDir)%(Filename).es"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_TSE110|Win32'">$(ProjectName)\%(RelativeDir)%(Filename).es</Message>
     </CustomBuild>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

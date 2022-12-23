@@ -15,5 +15,6 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 // Send event to target
 DECL_DLL void SendToTarget(CEntity *penSendEvent, EEventType eEventType, CEntity *penCaused = NULL);
+
 // Send event in range
 DECL_DLL void SendInRange(CEntity *penSource, EEventType eEventType, const FLOATaabbox3D &boxRange);

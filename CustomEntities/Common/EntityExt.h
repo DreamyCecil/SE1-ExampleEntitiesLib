@@ -1,4 +1,4 @@
-/* Copyright (c) 2020-2021 Dreamy Cecil
+/* Copyright (c) 2020-2022 Dreamy Cecil
 This program is free software; you can redistribute it and/or modify
 it under the terms of version 2 of the GNU General Public License as published by
 the Free Software Foundation
@@ -42,5 +42,6 @@ DECL_DLL CPlayer *GetNextPlayerEntity(INDEX &iPlayer);
 
 // Assert live entity
 #define ASSERT_CLiveEntity(_Entity) (reinterpret_cast<CLiveEntity*>(_Entity) != NULL)
+
 // Assert rational entity
 #define ASSERT_CRationalEntity(_Entity) (reinterpret_cast<CRationalEntity*>(_Entity) != NULL)

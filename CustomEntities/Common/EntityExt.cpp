@@ -1,4 +1,4 @@
-/* Copyright (c) 2020-2021 Dreamy Cecil
+/* Copyright (c) 2020-2022 Dreamy Cecil
 This program is free software; you can redistribute it and/or modify
 it under the terms of version 2 of the GNU General Public License as published by
 the Free Software Foundation
@@ -24,11 +24,11 @@ inline CDLLEntityClass *GetDLLEntityClass(CEntity *pen) {
 INDEX GetNumberOfClasses(const CTString &strClass) {
   INDEX ctEntities = 0;
 
-  {FOREACHINDYNAMICCONTAINER(_pNetwork->ga_World.wo_cenEntities, CEntity, iten) {
+  FOREACHINDYNAMICCONTAINER(_pNetwork->ga_World.wo_cenEntities, CEntity, iten) {
     if (IsDerivedFromClass(iten, strClass)) {
       ctEntities++;
     }
-  }}
+  }
 
   return ctEntities;
 };
@@ -38,7 +38,7 @@ CEntity *GetEntityOfClass(const CTString &strClass, INDEX iEntity) {
   INDEX ctEntities = 0;
   CEntity *pen = NULL;
 
-  {FOREACHINDYNAMICCONTAINER(_pNetwork->ga_World.wo_cenEntities, CEntity, iten) {
+  FOREACHINDYNAMICCONTAINER(_pNetwork->ga_World.wo_cenEntities, CEntity, iten) {
     if (IsDerivedFromClass(iten, strClass)) {
       pen = iten;
 
@@ -47,7 +47,7 @@ CEntity *GetEntityOfClass(const CTString &strClass, INDEX iEntity) {
       }
       ctEntities++;
     }
-  }}
+  }
 
   return pen;
 };

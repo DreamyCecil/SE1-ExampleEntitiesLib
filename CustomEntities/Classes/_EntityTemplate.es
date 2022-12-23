@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 Dreamy Cecil
+/* Copyright (c) 2020-2022 Dreamy Cecil
 This program is free software; you can redistribute it and/or modify
 it under the terms of version 2 of the GNU General Public License as published by
 the Free Software Foundation
@@ -33,7 +33,7 @@ properties:
  // --- Main logical properties
   1 BOOL m_bActive "Active" 'A' = TRUE,
   2 CEntityPointer m_penTarget "Target" 'T',
-  
+
  // --- Entity identity properties
  10 CTString m_strName "Name" 'N' = "ClassName",
  11 CTString m_strDescription = "",
@@ -50,6 +50,8 @@ functions:
     return m_strDescription;
   };
 
+// --- Methods not supported by 1.05 engine version can be enclosed in these blocks
+#if SE1_VER >= 107
   // Count memory used by this object
   SLONG GetUsedMemory(void) {
     SLONG slUsedMemory = sizeof(CClassName) - sizeof(CRationalEntity) + CRationalEntity::GetUsedMemory();
@@ -58,6 +60,7 @@ functions:
     slUsedMemory += m_strDescription.Length();
     return slUsedMemory;
   };
+#endif
 
 procedures:
   // --- Entity entry procedure (usually in the very bottom of procedures)
@@ -68,7 +71,7 @@ procedures:
 
     SetModel(MODEL_MARKER);
     SetMainModelTexture(TEXTURE_MARKER);
-    
+
     // Color the entity
     GetModelObject()->mo_colBlendColor = m_colEntity|0xFF;
 

@@ -25,42 +25,31 @@
     <Filter Include="Header Files\Entity headers">
       <UniqueIdentifier>{d2c7df00-366e-4167-8aee-7741bb704081}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Entity tables">
+      <UniqueIdentifier>{8ec23aec-94c2-4e34-8630-2179c2206c5a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="_Global.es">
-      <Filter>Class Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="ExampleEntity.es">
-      <Filter>Class Files</Filter>
-    </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="StdH\StdH.h">
-      <Filter>Header Files\Common headers</Filter>
-    </ClInclude>
     <ClInclude Include="Common\Common.h">
       <Filter>Header Files\Common headers</Filter>
     </ClInclude>
     <ClInclude Include="Common\EntityExt.h">
       <Filter>Header Files\Common headers</Filter>
     </ClInclude>
-    <ClInclude Include="_Global.h">
+    <ClInclude Include="Classes\ExampleEntity.h">
       <Filter>Header Files\Entity headers</Filter>
     </ClInclude>
-    <ClInclude Include="_Global_tables.h">
+    <ClInclude Include="Classes\Global.h">
       <Filter>Header Files\Entity headers</Filter>
     </ClInclude>
-    <ClInclude Include="ExampleEntity.h">
-      <Filter>Header Files\Entity headers</Filter>
+    <ClInclude Include="Classes\ExampleEntity_tables.h">
+      <Filter>Header Files\Entity tables</Filter>
     </ClInclude>
-    <ClInclude Include="ExampleEntity_tables.h">
-      <Filter>Header Files\Entity headers</Filter>
+    <ClInclude Include="Classes\Global_tables.h">
+      <Filter>Header Files\Entity tables</Filter>
     </ClInclude>
-    <ClInclude Include="Common\ImportedEvents.h">
-      <Filter>Header Files\Common headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Common\ImportedFlags.h">
-      <Filter>Header Files\Common headers</Filter>
+    <ClInclude Include="StdH.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -70,17 +59,22 @@
     <ClCompile Include="Common\EntityExt.cpp">
       <Filter>Source Files\Common sources</Filter>
     </ClCompile>
-    <ClCompile Include="StdH\StdH.cpp">
-      <Filter>Source Files\Common sources</Filter>
-    </ClCompile>
-    <ClCompile Include="_Global.cpp">
+    <ClCompile Include="Classes\Global.cpp">
       <Filter>Source Files\Entity sources</Filter>
     </ClCompile>
-    <ClCompile Include="ExampleEntity.cpp">
+    <ClCompile Include="Classes\ExampleEntity.cpp">
       <Filter>Source Files\Entity sources</Filter>
     </ClCompile>
-    <ClCompile Include="Common\ImportedEvents.cpp">
-      <Filter>Source Files\Common sources</Filter>
+    <ClCompile Include="LibMain.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Classes\ExampleEntity.es">
+      <Filter>Class Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Classes\Global.es">
+      <Filter>Class Files</Filter>
+    </CustomBuild>
   </ItemGroup>
 </Project>

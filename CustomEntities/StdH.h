@@ -1,4 +1,4 @@
-/* Copyright (c) 2020-2021 Dreamy Cecil
+/* Copyright (c) 2020-2022 Dreamy Cecil
 This program is free software; you can redistribute it and/or modify
 it under the terms of version 2 of the GNU General Public License as published by
 the Free Software Foundation
@@ -17,17 +17,18 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #define DECL_DLL _declspec(dllexport)
 
-// -- EntitiesMP compatibility (if not dependent directly)
+// -- Entities project compatibility (if not directly dependent)
 
 // Define player class
 typedef CPlayerEntity CPlayer;
 
-// Imported events (exclude if using "Global.h" from EntitiesMP)
-#include "../Common/ImportedEvents.h"
-// Imported flags (exclude if using "Common/Flags.h" from EntitiesMP)
-#include "../Common/ImportedFlags.h"
+// Imported events (exclude if using "Global.h" from Entities)
+#include "Common/ImportedEvents.h"
+
+// Imported flags (exclude if using "Common/Flags.h" from Entities)
+#include "Common/ImportedFlags.h"
 
 // Global headers
-#include "../_Global.h"
-#include "../Common/Common.h"
-#include "../Common/EntityExt.h"
+#include "Classes/Global.h"
+#include "Common/Common.h"
+#include "Common/EntityExt.h"

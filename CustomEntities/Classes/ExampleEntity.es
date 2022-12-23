@@ -1,4 +1,4 @@
-/* Copyright (c) 2020-2021 Dreamy Cecil
+/* Copyright (c) 2020-2022 Dreamy Cecil
 This program is free software; you can redistribute it and/or modify
 it under the terms of version 2 of the GNU General Public License as published by
 the Free Software Foundation
@@ -23,18 +23,11 @@ void PrintPlayerInfo(CEntity *penPlayer, BOOL bAlive) {
   if (bAlive && !(penPlayer->GetFlags() & ENF_ALIVE)) {
     return;
   }
-  
+
   FLOAT fHealth = ((CLiveEntity*)penPlayer)->GetHealth();
-  
+
   CPrintF(" %s^r: %d\n", penPlayer->GetName(), (INDEX)fHealth);
 };
-
-// Only valid for TSE 1.07 and newer
-#if SE1_VER >= 107
-  #define CRationalEntity_GetUsedMemory CRationalEntity::GetUsedMemory
-#else
-  #define CRationalEntity_GetUsedMemory() sizeof(CRationalEntity)
-#endif
 %}
 
 class export CExampleEntity : CRationalEntity {
@@ -44,11 +37,11 @@ features  "HasName", "IsTargetable", "IsImportant";
 
 properties:
   1 BOOL m_bActive "Active" 'A' = TRUE,
-  
+
  10 CTString m_strName "Name" 'N' = "ExampleEntity",
  11 CTString m_strDescription = "",
  12 COLOR m_colEntity "Entity Color" = COLOR(0xFFFFFF00),
- 
+
  // Only report on alive players
  20 BOOL m_bOnlyAlive "Only Alive Players" = FALSE,
 
@@ -64,14 +57,17 @@ functions:
     return m_strDescription;
   };
 
+// Only valid for TSE 1.07 and newer
+#if SE1_VER >= 107
   // Count memory used by this object
   SLONG GetUsedMemory(void) {
-    SLONG slUsedMemory = sizeof(CExampleEntity) - sizeof(CRationalEntity) + CRationalEntity_GetUsedMemory();
+    SLONG slUsedMemory = sizeof(CExampleEntity) - sizeof(CRationalEntity) + CRationalEntity::GetUsedMemory();
 
     slUsedMemory += m_strName.Length();
     slUsedMemory += m_strDescription.Length();
     return slUsedMemory;
   };
+#endif
 
 procedures:
   // Logic loop
@@ -83,52 +79,52 @@ procedures:
         CPrintF("%s is %s\n", m_strName, (m_bActive ? "active" : "inactive"));
         resume;
       }
-      
+
       // Activate the entity
       on (EActivate) : {
         m_bActive = TRUE;
-        
+
         // Tell that became active
         SendEvent(EBegin());
         resume;
       }
-      
+
       // Deactivate the entity
       on (EDeactivate) : {
         m_bActive = FALSE;
-        
+
         // Tell that became inactive
         SendEvent(EBegin());
         resume;
       }
-      
+
       // Print all players' health on trigger event
       on (ETrigger) : {
         // Not active
         if (!m_bActive) {
           resume;
         }
-        
+
         CPrintF(" --- Players' health:\n");
-        
+
         // Go through existing players
         FOREACH_CPlayer(i, penPlayer) {
           // Print out their names and health
           PrintPlayerInfo(penPlayer, m_bOnlyAlive);
         }
-        
+
         resume;
       }
-      
+
       // Ignore other events
       otherwise() : {
         resume;
       }
     }
-    
+
     return;
   };
-  
+
   // Entry point
   Main() {
     InitAsEditorModel();
@@ -137,10 +133,10 @@ procedures:
 
     SetModel(MODEL_MARKER);
     SetModelMainTexture(TEXTURE_MARKER);
-    
+
     // Color the entity
     GetModelObject()->mo_colBlendColor = m_colEntity|0xFF;
-    
+
     // Wait one game tick before jumping to the logic procedure
     autowait(_pTimer->TickQuantum);
     jump MainLoop();
