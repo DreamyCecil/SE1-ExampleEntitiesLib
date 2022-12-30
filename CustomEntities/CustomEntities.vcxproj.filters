@@ -65,7 +65,7 @@
     <ClCompile Include="Classes\ExampleEntity.cpp">
       <Filter>Source Files\Entity sources</Filter>
     </ClCompile>
-    <ClCompile Include="LibMain.cpp">
+    <ClCompile Include="%28LibMain%29.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
