@@ -17,6 +17,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 %{
 #include "StdH.h"
 
+#if VANILLA_ENTITIES
+  #include <EntitiesV/PlayerWeapons.h>
+#endif
+
 // Print player info
 void PrintPlayerInfo(CEntity *penPlayer, BOOL bAlive) {
   // Not alive
@@ -30,6 +34,12 @@ void PrintPlayerInfo(CEntity *penPlayer, BOOL bAlive) {
   // Display health
   FLOAT fHealth = ((CLiveEntity *)penPlayer)->GetHealth();
   CPrintF("  Health: %d\n", (INDEX)fHealth);
+
+  // Display available weapons
+  #if VANILLA_ENTITIES
+    INDEX iWeapons = ((CPlayer *)penPlayer)->GetPlayerWeapons()->m_iAvailableWeapons;
+    CPrintF("  Weapons: 0x%X\n", iWeapons);
+  #endif
 };
 %}
 
