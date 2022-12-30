@@ -33,9 +33,6 @@
     <ClInclude Include="Common\Common.h">
       <Filter>Header Files\Common headers</Filter>
     </ClInclude>
-    <ClInclude Include="Common\EntityExt.h">
-      <Filter>Header Files\Common headers</Filter>
-    </ClInclude>
     <ClInclude Include="Classes\ExampleEntity.h">
       <Filter>Header Files\Entity headers</Filter>
     </ClInclude>
@@ -54,9 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Common\Common.cpp">
-      <Filter>Source Files\Common sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Common\EntityExt.cpp">
       <Filter>Source Files\Common sources</Filter>
     </ClCompile>
     <ClCompile Include="Classes\Global.cpp">

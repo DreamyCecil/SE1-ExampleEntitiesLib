@@ -518,13 +518,11 @@ copy $(OutDir)$(TargetName).lib $(SolutionDir)..\Bin\Debug\ &gt;nul</Command>
     <ClInclude Include="Classes\Global.h" />
     <ClInclude Include="Classes\Global_tables.h" />
     <ClInclude Include="Common\Common.h" />
-    <ClInclude Include="Common\EntityExt.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Classes\ExampleEntity.cpp" />
     <ClCompile Include="Classes\Global.cpp" />
     <ClCompile Include="Common\Common.cpp" />
-    <ClCompile Include="Common\EntityExt.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Classes\ExampleEntity.es">

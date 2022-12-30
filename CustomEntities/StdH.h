@@ -31,4 +31,3 @@ typedef CPlayerEntity CPlayer;
 // Global headers
 #include "Classes/Global.h"
 #include "Common/Common.h"
-#include "Common/EntityExt.h"

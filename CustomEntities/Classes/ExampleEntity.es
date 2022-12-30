@@ -24,9 +24,12 @@ void PrintPlayerInfo(CEntity *penPlayer, BOOL bAlive) {
     return;
   }
 
-  FLOAT fHealth = ((CLiveEntity*)penPlayer)->GetHealth();
+  // Player name
+  CPrintF("%s^r:\n", penPlayer->GetName());
 
-  CPrintF(" %s^r: %d\n", penPlayer->GetName(), (INDEX)fHealth);
+  // Display health
+  FLOAT fHealth = ((CLiveEntity *)penPlayer)->GetHealth();
+  CPrintF("  Health: %d\n", (INDEX)fHealth);
 };
 %}
 
@@ -53,7 +56,7 @@ components:
 functions:
   // Entity description
   const CTString &GetDescription(void) const {
-    ((CTString&)m_strDescription).PrintF("<%s>", (m_bActive ? "active" : "inactive"));
+    ((CTString &)m_strDescription).PrintF("<%s>", (m_bActive ? "active" : "inactive"));
     return m_strDescription;
   };
 
@@ -78,7 +81,7 @@ procedures:
       on (EBegin) : {
         CPrintF("%s is %s\n", m_strName, (m_bActive ? "active" : "inactive"));
         resume;
-      }
+      };
 
       // Activate the entity
       on (EActivate) : {
@@ -87,7 +90,7 @@ procedures:
         // Tell that became active
         SendEvent(EBegin());
         resume;
-      }
+      };
 
       // Deactivate the entity
       on (EDeactivate) : {
@@ -96,7 +99,7 @@ procedures:
         // Tell that became inactive
         SendEvent(EBegin());
         resume;
-      }
+      };
 
       // Print all players' health on trigger event
       on (ETrigger) : {
@@ -105,21 +108,27 @@ procedures:
           resume;
         }
 
-        CPrintF(" --- Players' health:\n");
+        CPrintF(" --- Player info:\n");
 
         // Go through existing players
-        FOREACH_CPlayer(i, penPlayer) {
-          // Print out their names and health
+        for (INDEX i = 0; i < GetMaxPlayers(); i++) {
+          CEntity *penPlayer = GetPlayerEntity(i);
+
+          if (penPlayer == NULL || penPlayer->GetFlags() & ENF_DELETED) {
+            continue;
+          }
+
+          // Print out their info
           PrintPlayerInfo(penPlayer, m_bOnlyAlive);
         }
 
         resume;
-      }
+      };
 
       // Ignore other events
       otherwise() : {
         resume;
-      }
+      };
     }
 
     return;
@@ -135,7 +144,7 @@ procedures:
     SetModelMainTexture(TEXTURE_MARKER);
 
     // Color the entity
-    GetModelObject()->mo_colBlendColor = m_colEntity|0xFF;
+    GetModelObject()->mo_colBlendColor = m_colEntity | 0xFF;
 
     // Wait one game tick before jumping to the logic procedure
     autowait(_pTimer->TickQuantum);

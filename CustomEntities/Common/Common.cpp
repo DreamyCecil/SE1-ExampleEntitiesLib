@@ -15,60 +15,62 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "StdH.h"
 
+#include "Classes/Global.h"
+
 // Send event to target
-void SendToTarget(CEntity *penSendEvent, EEventType eEventType, CEntity *penCaused) {
-  // invalid target
+void SendToTarget(CEntity *penSendEvent, EVanillaEventType eEventType, CEntity *penCaused) {
+  // Invalid target
   if (penSendEvent == NULL) {
     return;
   }
   
   switch (eEventType) {
-    // send causer with Trigger event
-    case EET_TRIGGER: {
+    // Send causer with the Trigger event
+    case VET_TRIGGER: {
       ETrigger eTrigger;
       eTrigger.penCaused = penCaused;
       penSendEvent->SendEvent(eTrigger);
     } break;
     
-    // send causer with Start event
-    case EET_START: {
+    // Send causer with the Start event
+    case VET_START: {
       EStart eStart;
       eStart.penCaused = penCaused;
       penSendEvent->SendEvent(eStart);
     } break;
     
-    case EET_STOP:             penSendEvent->SendEvent(EStop()); break;
-    case EET_ACTIVATE:         penSendEvent->SendEvent(EActivate()); break;
-    case EET_DEACTIVATE:       penSendEvent->SendEvent(EDeactivate()); break;
-    case EET_ENVIRONMENTSTART: penSendEvent->SendEvent(EEnvironmentStart()); break;
-    case EET_ENVIRONMENTSTOP:  penSendEvent->SendEvent(EEnvironmentStop()); break;
-    case EET_STARTATTACK:      penSendEvent->SendEvent(EStartAttack()); break;
-    case EET_STOPATTACK:       penSendEvent->SendEvent(EStopAttack()); break;
-    case EET_STOPBLINDNESS:    penSendEvent->SendEvent(EStopBlindness()); break;
-    case EET_STOPDEAFNESS:     penSendEvent->SendEvent(EStopDeafness()); break;
-    case EET_TELEPORTMB:       penSendEvent->SendEvent(ETeleportMovingBrush()); break;
+    case VET_STOP:             penSendEvent->SendEvent(EStop()); break;
+    case VET_ACTIVATE:         penSendEvent->SendEvent(EActivate()); break;
+    case VET_DEACTIVATE:       penSendEvent->SendEvent(EDeactivate()); break;
+    case VET_ENVIRONMENTSTART: penSendEvent->SendEvent(EEnvironmentStart()); break;
+    case VET_ENVIRONMENTSTOP:  penSendEvent->SendEvent(EEnvironmentStop()); break;
+    case VET_STARTATTACK:      penSendEvent->SendEvent(EStartAttack()); break;
+    case VET_STOPATTACK:       penSendEvent->SendEvent(EStopAttack()); break;
+    case VET_STOPBLINDNESS:    penSendEvent->SendEvent(EStopBlindness()); break;
+    case VET_STOPDEAFNESS:     penSendEvent->SendEvent(EStopDeafness()); break;
+    case VET_TELEPORTMB:       penSendEvent->SendEvent(ETeleportMovingBrush()); break;
     
-    // ignore other events (including EET_IGNORE)
+    // Ignore other events (including VET_IGNORE)
     default: break;
   }
 };
 
 // Send event in range
-void SendInRange(CEntity *penSource, EEventType eEventType, const FLOATaabbox3D &boxRange) {
+void SendInRange(CEntity *penSource, EVanillaEventType eEventType, const FLOATaabbox3D &boxRange) {
   switch (eEventType) {
-    case EET_START:            penSource->SendEventInRange(EStart(), boxRange); break;
-    case EET_STOP:             penSource->SendEventInRange(EStop(), boxRange); break;
-    case EET_TRIGGER:          penSource->SendEventInRange(ETrigger(), boxRange); break;
-    case EET_ACTIVATE:         penSource->SendEventInRange(EActivate(), boxRange); break;
-    case EET_DEACTIVATE:       penSource->SendEventInRange(EDeactivate(), boxRange); break;
-    case EET_ENVIRONMENTSTART: penSource->SendEventInRange(EEnvironmentStart(), boxRange); break;
-    case EET_ENVIRONMENTSTOP:  penSource->SendEventInRange(EEnvironmentStop(), boxRange); break;
-    case EET_STARTATTACK:      penSource->SendEventInRange(EStartAttack(), boxRange); break;
-    case EET_STOPATTACK:       penSource->SendEventInRange(EStopAttack(), boxRange); break;
-    case EET_STOPBLINDNESS:    penSource->SendEventInRange(EStopBlindness(), boxRange); break;
-    case EET_STOPDEAFNESS:     penSource->SendEventInRange(EStopDeafness(), boxRange); break;
+    case VET_START:            penSource->SendEventInRange(EStart(), boxRange); break;
+    case VET_STOP:             penSource->SendEventInRange(EStop(), boxRange); break;
+    case VET_TRIGGER:          penSource->SendEventInRange(ETrigger(), boxRange); break;
+    case VET_ACTIVATE:         penSource->SendEventInRange(EActivate(), boxRange); break;
+    case VET_DEACTIVATE:       penSource->SendEventInRange(EDeactivate(), boxRange); break;
+    case VET_ENVIRONMENTSTART: penSource->SendEventInRange(EEnvironmentStart(), boxRange); break;
+    case VET_ENVIRONMENTSTOP:  penSource->SendEventInRange(EEnvironmentStop(), boxRange); break;
+    case VET_STARTATTACK:      penSource->SendEventInRange(EStartAttack(), boxRange); break;
+    case VET_STOPATTACK:       penSource->SendEventInRange(EStopAttack(), boxRange); break;
+    case VET_STOPBLINDNESS:    penSource->SendEventInRange(EStopBlindness(), boxRange); break;
+    case VET_STOPDEAFNESS:     penSource->SendEventInRange(EStopDeafness(), boxRange); break;
     
-    // ignore other events (including EET_IGNORE)
+    // Ignore other events (including VET_IGNORE)
     default: break;
   }
 };
