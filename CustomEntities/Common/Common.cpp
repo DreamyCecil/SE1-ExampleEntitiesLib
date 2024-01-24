@@ -1,4 +1,4 @@
-/* Copyright (c) 2020-2023 Dreamy Cecil
+/* Copyright (c) 2020-2024 Dreamy Cecil
 This program is free software; you can redistribute it and/or modify
 it under the terms of version 2 of the GNU General Public License as published by
 the Free Software Foundation
@@ -23,7 +23,7 @@ void SendToTarget(CEntity *penSendEvent, EVanillaEventType eEventType, CEntity *
   if (penSendEvent == NULL) {
     return;
   }
-  
+
   switch (eEventType) {
     // Send causer with the Trigger event
     case VET_TRIGGER: {
@@ -31,14 +31,14 @@ void SendToTarget(CEntity *penSendEvent, EVanillaEventType eEventType, CEntity *
       eTrigger.penCaused = penCaused;
       penSendEvent->SendEvent(eTrigger);
     } break;
-    
+
     // Send causer with the Start event
     case VET_START: {
       EStart eStart;
       eStart.penCaused = penCaused;
       penSendEvent->SendEvent(eStart);
     } break;
-    
+
     case VET_STOP:             penSendEvent->SendEvent(EStop()); break;
     case VET_ACTIVATE:         penSendEvent->SendEvent(EActivate()); break;
     case VET_DEACTIVATE:       penSendEvent->SendEvent(EDeactivate()); break;
@@ -49,7 +49,7 @@ void SendToTarget(CEntity *penSendEvent, EVanillaEventType eEventType, CEntity *
     case VET_STOPBLINDNESS:    penSendEvent->SendEvent(EStopBlindness()); break;
     case VET_STOPDEAFNESS:     penSendEvent->SendEvent(EStopDeafness()); break;
     case VET_TELEPORTMB:       penSendEvent->SendEvent(ETeleportMovingBrush()); break;
-    
+
     // Ignore other events (including VET_IGNORE)
     default: break;
   }
@@ -69,7 +69,7 @@ void SendInRange(CEntity *penSource, EVanillaEventType eEventType, const FLOATaa
     case VET_STOPATTACK:       penSource->SendEventInRange(EStopAttack(), boxRange); break;
     case VET_STOPBLINDNESS:    penSource->SendEventInRange(EStopBlindness(), boxRange); break;
     case VET_STOPDEAFNESS:     penSource->SendEventInRange(EStopDeafness(), boxRange); break;
-    
+
     // Ignore other events (including VET_IGNORE)
     default: break;
   }

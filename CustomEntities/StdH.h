@@ -1,4 +1,4 @@
-/* Copyright (c) 2020-2023 Dreamy Cecil
+/* Copyright (c) 2020-2024 Dreamy Cecil
 This program is free software; you can redistribute it and/or modify
 it under the terms of version 2 of the GNU General Public License as published by
 the Free Software Foundation
@@ -13,6 +13,9 @@ You should have received a copy of the GNU General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. */
 
+// Engine components
+#include <Engine/Engine.h>
+
 // Vanilla entities dependency switch
 #define VANILLA_ENTITIES 0
 
@@ -25,10 +28,11 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <EntitiesV/StdH/StdH.h>
 #include <EntitiesV/Player.h>
 
-#else
+// Done with importing Entities, now export this library
+#undef DECL_DLL
+#define DECL_DLL _declspec(dllexport)
 
-// Engine components
-#include <Engine/Engine.h>
+#else
 
 #define DECL_DLL _declspec(dllexport)
 

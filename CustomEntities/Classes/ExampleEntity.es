@@ -1,4 +1,4 @@
-/* Copyright (c) 2020-2023 Dreamy Cecil
+/* Copyright (c) 2020-2024 Dreamy Cecil
 This program is free software; you can redistribute it and/or modify
 it under the terms of version 2 of the GNU General Public License as published by
 the Free Software Foundation
@@ -35,11 +35,11 @@ void PrintPlayerInfo(CEntity *penPlayer, BOOL bAlive) {
   FLOAT fHealth = ((CLiveEntity *)penPlayer)->GetHealth();
   CPrintF("  Health: %d\n", (INDEX)fHealth);
 
+#if VANILLA_ENTITIES
   // Display available weapons
-  #if VANILLA_ENTITIES
-    INDEX iWeapons = ((CPlayer *)penPlayer)->GetPlayerWeapons()->m_iAvailableWeapons;
-    CPrintF("  Weapons: 0x%X\n", iWeapons);
-  #endif
+  INDEX iWeapons = ((CPlayer *)penPlayer)->GetPlayerWeapons()->m_iAvailableWeapons;
+  CPrintF("  Weapons: 0x%X\n", iWeapons);
+#endif
 };
 %}
 
@@ -71,7 +71,7 @@ functions:
   };
 
 // Only valid for TSE 1.07 and newer
-#if SE1_VER >= 107
+#if SE1_VER >= SE1_107
   // Count memory used by this object
   SLONG GetUsedMemory(void) {
     SLONG slUsedMemory = sizeof(CExampleEntity) - sizeof(CRationalEntity) + CRationalEntity::GetUsedMemory();
@@ -91,7 +91,7 @@ procedures:
       on (EBegin) : {
         CPrintF("%s is %s\n", m_strName, (m_bActive ? "active" : "inactive"));
         resume;
-      };
+      }
 
       // Activate the entity
       on (EActivate) : {
@@ -100,7 +100,7 @@ procedures:
         // Tell that became active
         SendEvent(EBegin());
         resume;
-      };
+      }
 
       // Deactivate the entity
       on (EDeactivate) : {
@@ -109,7 +109,7 @@ procedures:
         // Tell that became inactive
         SendEvent(EBegin());
         resume;
-      };
+      }
 
       // Print all players' health on trigger event
       on (ETrigger) : {
@@ -133,12 +133,10 @@ procedures:
         }
 
         resume;
-      };
+      }
 
       // Ignore other events
-      otherwise() : {
-        resume;
-      };
+      otherwise() : { resume; }
     }
 
     return;

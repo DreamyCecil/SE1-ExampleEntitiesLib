@@ -506,7 +506,7 @@ copy $(OutDir)$(TargetName).lib $(SolutionDir)..\Bin\Debug\ &gt;nul</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="%28LibMain%29.cpp">
+    <ClCompile Include="LibMain.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_TSE110|Win32'">Create</PrecompiledHeader>
@@ -521,10 +521,6 @@ copy $(OutDir)$(TargetName).lib $(SolutionDir)..\Bin\Debug\ &gt;nul</Command>
     <ClInclude Include="StdH.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Classes\ExampleEntity.h" />
-    <ClInclude Include="Classes\ExampleEntity_tables.h" />
-    <ClInclude Include="Classes\Global.h" />
-    <ClInclude Include="Classes\Global_tables.h" />
     <ClInclude Include="Common\Common.h" />
   </ItemGroup>
   <ItemGroup>
